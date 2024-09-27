@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoebe Akinrinmade Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #023E8A;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .tile {
+            background-color: #CAF0F8;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .tile.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header tile */
+        .tile-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tile-header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .tile-header h1 {
+            font-size: 2.5em;
+            color: white;
+        }
+
+        /* Intro tile */
+        .tile-intro {
+            width: 100%;
+        }
+
+        .tile-intro p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #023E8A;
+        }
+
+        /* Skills & Experience tiles */
+        .tile-skill, .tile-experience {
+            width: 45%;
+            min-height: 150px;
+        }
+
+        .tile-contact {
+            width: 100%;
+            text-align: center;
+        }
+
+        .tile-contact a {
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .tile-contact img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s;
+        }
+
+        .tile-contact img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tile-skill, .tile-experience {
+                width: 100%;
+            }
+
+            .tile-header h1 {
+                font-size: 2em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Tile -->
+        <div class="tile tile-header">
+            <h1>Phoebe Akinrinmade</h1>
+            <img src="https://via.placeholder.com/150" alt="Phoebe's Photo">
+        </div>
+
+        <!-- Intro Tile -->
+        <div class="tile tile-intro">
+            <p>Loren ipsum dolor sit amet, consectetur adipiscing elit. Phoebe Akinrinmade is a professional Virtual Assistant with extensive experience in administrative tasks, social media management, and project coordination.</p>
+        </div>
+
+        <!-- Skills Tiles -->
+        <div class="tile tile-skill">
+            <h2>Skills</h2>
+            <p>Loren ipsum: Task Management, Communication, Social Media Management</p>
+        </div>
+
+        <div class="tile tile-skill">
+            <h2>Skills</h2>
+            <p>Loren ipsum: Data Entry, Google Workspace, Time Management</p>
+        </div>
+
+        <!-- Experience Tiles -->
+        <div class="tile tile-experience">
+            <h2>Experience</h2>
+            <p>Loren ipsum: Virtual Assistant at ABC Company</p>
+        </div>
+
+        <div class="tile tile-experience">
+            <h2>Experience</h2>
+            <p>Loren ipsum: Social Media Manager at XYZ Organization</p>
+        </div>
+
+        <!-- Contact Tile -->
+        <div class="tile tile-contact">
+            <h2>Contact</h2>
+            <a href="mailto:phoebe@example.com"><img src="https://via.placeholder.com/50x50?text=@" alt="Email Icon"></a>
+            <a href="https://www.linkedin.com"><img src="https://via.placeholder.com/50x50?text=LI" alt="LinkedIn Icon"></a>
+            <a href="https://www.twitter.com"><img src="https://via.placeholder.com/50x50?text=TW" alt="Twitter Icon"></a>
+        </div>
+    </div>
+
+    <script>
+        // Scroll animation for tiles
+        const tiles = document.querySelectorAll('.tile');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        tiles.forEach(tile => {
+            observer.observe(tile);
+        });
+    </script>
+
+</body>
+</html>
